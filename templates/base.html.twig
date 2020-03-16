@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Логоцентр "Говоруша"{% endblock %}</title>
+        {% block stylesheets %}
+        	
+        	<link href="https://fonts.googleapis.com/css?family=Gabriela&amp;display=swap&amp;subset=cyrillic" rel="stylesheet">
+         {{ encore_entry_link_tags('app') }}
+     {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        <div class="container">
+        	<header class="header-flex">
+        		<div class="row align-items-center">
+        			<a class="col-md-4" href="{{ path('lc_home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
+	        	<div class="col-md-8">
+					<nav>
+						<ul>
+							<li><i class="fa fa-child"></i><a href="{{ path('lc_home') }}">Главная</a></li>
+							<li><a href="{#{ path('lc_services') }#}">Услуги и цены</a></li>
+							<li><a href="{#{ path('lc_blog') }#}">Блог Говоруши</a></li>
+							<li><a href="{#{ path('lc_feedback') }#}">Отзывы</a></li>
+							<li><a href="{#{ path('lc_faq') }#}">Вопросы и ответы</a></li>
+							<li><a href="{#{ path('lc_contact') }#}">Контакты</a></li>
+							<li><a href="{#{ path('lc_appointment') }#}">Записаться</a></li>
+						</ul>
+					</nav>
+        		</div>
+	        	
+			</div>
+        	</header>
+        	
+        </div>
+		{% block lc_content %}
+  		{% endblock %}
+		<footer class="flex-footer">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+				<div class="col-md-4"></div>
+			</div>
+		</footer>
+        {% endblock %}
+        {% block javascripts %}
+		{{ encore_entry_script_tags('app') }}
+		</script>
+        {% endblock %}
+    </body>
+</html>
