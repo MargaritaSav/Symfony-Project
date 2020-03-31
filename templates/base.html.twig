@@ -1,51 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Логоцентр "Говоруша"{% endblock %}</title>
-        {% block stylesheets %}
-        	
-        	<link href="https://fonts.googleapis.com/css?family=Gabriela&amp;display=swap&amp;subset=cyrillic" rel="stylesheet">
-         {{ encore_entry_link_tags('app') }}
-     {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-        <div class="container">
-        	<header class="header-flex">
-        		<div class="row align-items-center">
-        			<a class="col-md-4" href="{{ path('lc_home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
-	        	<div class="col-md-8">
-					<nav>
-						<ul>
-							<li><i class="fa fa-child"></i><a href="{{ path('lc_home') }}">Главная</a></li>
-							<li><a href="{#{ path('lc_services') }#}">Услуги и цены</a></li>
-							<li><a href="{#{ path('lc_blog') }#}">Блог Говоруши</a></li>
-							<li><a href="{#{ path('lc_feedback') }#}">Отзывы</a></li>
-							<li><a href="{#{ path('lc_faq') }#}">Вопросы и ответы</a></li>
-							<li><a href="{#{ path('lc_contact') }#}">Контакты</a></li>
-							<li><a href="{#{ path('lc_appointment') }#}">Записаться</a></li>
-						</ul>
-					</nav>
-        		</div>
-	        	
-			</div>
-        	</header>
-        	
-        </div>
-		{% block lc_content %}
-  		{% endblock %}
-		<footer class="flex-footer">
-			<div class="row">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"></div>
-				<div class="col-md-4"></div>
-			</div>
-		</footer>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Логоцентр "Говоруша"{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kurale&amp;family=Lora&amp;display=swap" rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    {% block body %}
+    <div class="container-fluid" id="my-page">
+        <header class="header-flex">
+            <div class="row align-items-center justify-content-between">
+            	<div class="col-8 col-md-4" id="logo-header">
+            		<a href="{{ path('lc_home') }}"><img src="{{ asset('build/images/logo.png') }}" alt="logo"></a>
+            	</div>
+                
+                <div id="my-header" class="col-4 col-md-8">
+                    <m-burger menu="my-menu" fx="collapse"></m-burger>
+                    <nav id="my-menu">
+                        <ul>
+                            <li><a href="{{ path('lc_home') }}">Главная</a></li>
+                            <li class="submenu-parent" id="sub-1"><span>Услуги и цены</span>
+                                <ul class="submenu">
+                                    <li><a href="{{ path('lc_particular') }}">Индивидуальные занятия</a></li>
+                                    <li><a href="{{ path('lc_group') }}">Групповые занятия</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-parent" id="sub-2"><span>Блог Говоруши</span>
+                                <ul class="submenu">
+
+                                    <li><a href="">Психология</a></li>
+                                    <li><a href="">Логопедия</a></li>
+                                    <li><a href="">Развивающие игры</a></li>
+                                    <li><a href="{{ path('lc_blog') }}">Все публикации блога</a></li>
+                                </ul>
+                            </li>
+                            <!--<li><a href="{{ path('lc_feedback') }}">Отзывы</a></li>-->
+                            <li><a href="{{ path('lc_faq') }}">Вопросы и ответы</a></li>
+                            <li><a href="{{ path('lc_contact') }}">Контакты</a></li>
+                            <li><a class="button" href="{{ path('lc_appointment') }}">Записаться</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <nav class="col-sm-12 col-md-8" id="nav">
+                    <ul class="d-flex justify-content-end">
+                        <li><a href="{{ path('lc_home') }}">Главная</a></li>
+                        <li class="submenu-parent" id="elem-1"><a href="{{ path('lc_services') }}">Услуги и цены</a>
+                            <ul class="submenu">
+                                <li><a href="{{ path('lc_particular') }}">Индивидуальные занятия</a></li>
+                                <li><a href="{{ path('lc_group') }}">Групповые занятия</a></li>
+                            </ul>
+                        </li>
+                        <li class="submenu-parent" id="elem-2"><a href="{{ path('lc_blog') }}">Блог Говоруши</a>
+                            <ul class="submenu">
+                                <li><a href="">Психология</a></li>
+                                <li><a href="">Логопедия</a></li>
+                                <li><a href="">Развивающие игры</a></li>
+                            </ul>
+                        </li>
+                        <!--<li><a href="{{ path('lc_feedback') }}">Отзывы</a></li>-->
+                        <li><a href="{{ path('lc_faq') }}">Вопросы и ответы</a></li>
+                        <li><a href="{{ path('lc_contact') }}">Контакты</a></li>
+                        <li><a class="button" href="{{ path('lc_appointment') }}">Записаться</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        {% block lc_content %}
         {% endblock %}
+        <footer class="flex-footer">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-4 col" id="contact-footer">
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i> Ул. Киевская 28Б, 2 этаж, офис 4 <br>
+                            <i class="fas fa-phone"></i> 8-913-871-05-77<br>
+                            <i class="far fa-envelope"> </i><a href="mailto: govorushalogo@mail.ru">govorushalogo@mail.ru</a>
+                        </p>
+                        <div class="social-icons">
+                            <div class="col"><a href="https://vk.com/govorusha70" target="blanc"><i class="fab fa-vk"></i></a></div>
+                            <div class="col"><a href="https://www.instagram.com/logocentergovorysha70" target="blanc"><i class="fab fa-instagram"></i></a></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mx-auto"><img src="{{ asset('build/images/logo2.png') }}" alt="logo"></div>
+                    <div class="col-md-4">
+                        <div id="schedule">
+                            <h5>Время работы:</h5>
+                            <p>
+                                <span class="time">Пн-Пт: 09:00 - 20:00 <br></span>
+                                <span class="time">Сб: 9:00 - 18:00 <br></span>
+                                <span class="time">Вс: выходной </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <button id="button-up"><i class="fas fa-chevron-up"></i>
+        </button>
+        {% endblock %}
+        
+
+        {{ encore_entry_script_tags('app') }}
+		
         {% block javascripts %}
-		{{ encore_entry_script_tags('app') }}
-		</script>
+        
         {% endblock %}
-    </body>
+    </div>
+</body>
+
 </html>

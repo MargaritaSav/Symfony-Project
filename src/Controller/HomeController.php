@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,7 +15,10 @@ class HomeController extends AbstractController{
 /**
  * @Route("/", name="lc_home")
  */
-	public function index(){
-		return $this->render('base.html.twig');
+	public function index(ArticleRepository $repository){
+		$latestArticles = $repository->findLatest();
+		return $this->render('homepage.html.twig', ['articles'=>$latestArticles]);
 	}
+
+
 }
