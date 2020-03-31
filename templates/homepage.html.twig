@@ -1,0 +1,254 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+
+
+
+{% block lc_content %}
+<div class="banner">
+    <div class="row align-items-center justify-content-center">
+        <div class="col col-lg-5 banner-composition">
+            <div id="banner-text">
+                <h1>Логопедический центр <span>“ГОВОРУША”</span>
+                    <hr>
+                </h1>
+                <p>Логопедическая помощь детям и взрослым <br> в г. Томске</p>
+                <a href="{{ path('lc_services') }}" class="button">Узнать цены</a>
+            </div>
+        </div>0
+        <div class="col-md0-5 banner-composition" id="banner-img">
+            
+                <img src="{{ asset('build/images/homepage/bird.png') }}" alt="bird">
+            
+        </div>
+    </div>
+    <div class="banner-contacts">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-map-marker-alt"></i> г. Томск, ул. Киевская 28Б, 2 этаж, офис 4
+            </div>
+            <div class="col-md-4">
+                <div class="phone-h">
+                    <i class="fas fa-phone"></i> +7 (495) 118-94-35</div>
+            </div>
+            <div class="col-md-4"><i class="fas fa-clock"></i> ПН-ПТ: 9:00 - 20:00 <span>СБ:</span> 9:00 - 18:00</div>
+        </div>
+    </div>
+</div>
+<section id="section-1">
+    <div class="section-header">
+        <div class="section-title-deco">
+            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <h2>Направления <span>работы</span></h2>
+        </div>
+        
+    </div>
+    <div class="section-1-cards">
+        <div class="row justify-content-around">
+            <div class="col-sm-12 col-lg-5 col-md-6">
+                <div class="my-card">
+                    <div class="my-card-header">
+                        <img src="{{ asset('build/images/homepage/family.png') }}" alt="decoration">
+                    </div>
+                    <div class="my-card-body" id="one">
+                        <div class="my-card-title">
+                            <h4>Логопедическая помощь взрослым и детям</h4>
+                        </div>
+                        <div class="my-card-review">
+                            <p>
+                                В нашем центре работают дипломированные логопеды и психологи со стажем. Благодаря богатому опыту и бесконечной любви к своему делу, наши специалисты смогут найти подход к вашему ребенку и создать комфортные условия для занятий.
+                                Предлагаем услуги для детей с задержкой развития (ЗРР, ЗПРР), общим недоразвитием речи, дисграфией, дислексией. Корректируем звукопроизношение у взрослых.
+                            </p>
+                        </div>
+                        <div class="my-card-footer">
+                            <a href="" class="button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-5 col-md-6">
+                <div class="my-card">
+                    <div class="my-card-header">
+                        <img src="{{ asset('build/images/homepage/puzzle.png') }}" alt="decoration">
+                    </div>
+                    <div class="my-card-body" id="two">
+                        <div class="my-card-title">
+                            <h4>Развивающие<br> занятия</h4>
+                        </div>
+                        <div class="my-card-review">
+                            <p>
+                                На развивающих занятиях для дошкольников (от 4 лет) мы работаем над
+                                развитием пальцевого праксиса,
+                                зрительно-пространственной ориентировкой,
+                                мышлением, памятью, вниманием,
+                                обогащением активного и пассивного словаря детей, правильным грамматическим оформлением, развитием конструктивного праксиса, развитием творческого мышления, фантазии, воспитанием эмоциональной отзывчивости, взаимопомощи.
+                            </p>
+                        </div>
+                        <div class="my-card-footer">
+                            <a href="" class="button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-5 col-md-6">
+                <div class="my-card">
+                    <div class="my-card-header">
+                        <img src="{{ asset('build/images/homepage/classroom.png') }}" alt="decoration">
+                    </div>
+                    <div class="my-card-body" id="three">
+                        <div class="my-card-title">
+                            <h4>Подготовка<br> к школе</h4>
+                        </div>
+                        <div class="my-card-review">
+                            <p>
+                                В авторских программах для детей 5-6 и 6-7 лет используется комбинированный подход: сочетание в процессе занятия элементов традиционного, классического обучения и современных прогрессивных методик, разнообразных приемов, которые задействуют у ребенка как можно больше каналов восприятия информации, что помогает легче и быстрее усваивать материал и развивает учебную мотивацию.
+                            </p>
+                        </div>
+                        <div class="my-card-footer">
+                            <a href="" class="button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-5 col-md-6">
+                <div class="my-card">
+                    <div class="my-card-header">
+                        <img src="{{ asset('build/images/homepage/play.png') }}" alt="decoration">
+                    </div>
+                    <div class="my-card-body" id="four">
+                        <div class="my-card-title">
+                            <h4>Досуговый клуб для малышей</h4>
+                        </div>
+                        <div class="my-card-review">
+                            <p>
+                                <strong>Клуб «Тайна третьей планеты»</strong> рассчитан на детей от 2,5 лет, которые не посещают детский сад. В этой группе проходит увлекательная, системная работа по формированию речи детей, коммуникативных навыков, социализации. Авторские программы комплексных тематических занятий включают в себя элементы передовых методик развития и воспитания детей (методика М. Монтессори, семьи Никитиных и пр.)
+                            </p>
+                        </div>
+                        <div class="my-card-footer">
+                            <a href="" class="button">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-2">
+    <div class="section-header">
+        <div class="section-title-deco">
+            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <h2>Наши <span>специалисты</span></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-lg-3 col-md-6">
+            <div class="card">
+                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Савельева Юлия Леонидовна</h5>
+                    <h6 class="card-subtitle mb-2">Учитель-логопед I категории</h6>
+                    <p class="card-text">Оказываемые услуги: коррекция звукопроизношения и дисграфии. Работаю в школе, имею опыт работы по устранению ошибок на письме, обучению чтению. Открыта для общения со взрослыми для постановки звуков.</p>
+                    <a href="#" class="btn button">Резюме</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-md-6">
+            <div class="card">
+                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Савельева Юлия Леонидовна</h5>
+                    <h6 class="card-subtitle mb-2">Учитель-логопед I категории</h6>
+                    <a href="#" class="btn button">Резюме</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-md-6">
+            <div class="card">
+                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn button">Резюме</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-3 col-md-6">
+            <div class="card">
+                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn button">Резюме</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="section-3">
+    <div class="section-header">
+        <div class="section-title-deco">
+            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <h2>Последние публикации <span>блога</span></h2>
+        </div>
+    </div>
+    <div class="row justify-content-around">
+        {% for article in articles %}
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="blog-hp-card">
+                <div class="blog-hp-card-header">
+                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
+                    <div class="blog-hp-card-date">
+                        <p>{{article.FormatedDate}}</p>
+                    </div>
+                </div>
+                <div class="blog-hp-card-body">
+                    <h5 class="card-title"><a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}">{{article.title}}</a></h5>
+                    <p class="card-text">{{article.review}}</p>
+                    <p class="card-text"></p>
+                    <a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}" class="btn button">Читать дальше</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-12 col-md-6 col-lg-3">
+            <div class="blog-hp-card">
+                <div class="blog-hp-card-header">
+                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
+                    <div class="blog-hp-card-date">
+                        <p>23 марта 2020</p>
+                    </div>
+                </div>
+                <div class="blog-hp-card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi qui asperiores necessitatibus. Ipsam doloribus facilis, ut repudiandae voluptatum veniam ipsa ducimus quibusdam laboriosam. Ea adipisci, illum veritatis saepe tempore, sint.</p>
+                    <p class="card-text"></p>
+                    <a href="#" class="btn button">Читать дальше</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 ">
+            <div class="blog-hp-card">
+                <div class="blog-hp-card-header">
+                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
+                    <div class="blog-hp-card-date">
+                         <p>23 марта 2020</p>
+                    </div>
+                </div>
+                <div class="blog-hp-card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi qui asperiores necessitatibus. Ipsam doloribus facilis, ut repudiandae voluptatum veniam ipsa ducimus quibusdam laboriosam. Ea adipisci, illum veritatis saepe tempore, sint.</p>
+                    <a href="#" class="btn button">Читать дальше</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('homepage') }}
+{% endblock %}

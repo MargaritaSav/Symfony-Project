@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block lc_content %}
+<div class="banner" id="blog-banner">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-12 col-md-5">
+            <div class="row align-items-center justify-content-center">
+                <div class="col">
+                    <p>Добро пожаловать в</p>
+                    <h1>Блог Говоруши!</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-5"><img src="{{ asset('build/images/blog/bird.png') }}" alt="bird"> </div>
+    </div>
+</div>
+<div class="row">
+    <aside class="col-lg-4 col-12">
+        <p> Статьи по темам:
+            <ul class="fa-ul">
+                <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="">Логопедия</a></li>
+                <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="">Психология</a></li>
+                <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="">Развивающие игры</a></li>
+                <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="">Все статьи</a></li>
+            </ul>
+        </p>
+    </aside>
+    <div class="col-lg-8 col-12">
+        <article>
+            <div class="row">
+                <div class="col-12 article-img"><img src="	" alt=""></div>
+                <div class="col-12 article-lg-row">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 article-title">
+                            <h4> Title title title title title title</h4>
+                        </div>
+                        <div class="col-lg-4 article-tag"><a class="psy">#психология</a></div>
+                    </div>
+                </div>
+                <div class="col-12 article-responsive-info">
+                    <div class="row">
+                        <div class="col-6 article-tag"><a class="psy">#психология</a>
+                        </div>
+                        <div class="col-6 article-data">
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="far fa-user"></i></span>Author</li>
+                                <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>Date</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 article-lg-row">
+                    <div class="row">
+                        <div class="col-12 col-lg-8  article-review">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur soluta repellendus culpa quis necessitatibus sequi animi cum similique id accusantium accusamus fugiat provident, blanditiis, ipsum error ratione consequatur, illum adipisci...</p>
+                        </div>
+                        <div class="col-lg-4 article-data">
+                            <ul class="fa-ul">
+                                <li><span class="fa-li"><i class="far fa-user"></i></span>Author</li>
+                                <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>Date</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12"><a href="{{ path('lc_article_view', {'id': "1"}) }}" class="button">Читать</a></div>
+            </div>
+        </article>
+        <nav aria-label="Page navigation example" class="my-pagination">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> < </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#"> > </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ encore_entry_script_tags('blog') }}
+{% endblock %}

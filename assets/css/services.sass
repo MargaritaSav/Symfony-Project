@@ -1,0 +1,260 @@
+@import 'vars.sass';
+
+.container-fluid
+	background-color: rgba(48, 62, 88, 0.6)
+.services-banner
+	height: 370px
+	background: linear-gradient(0deg, rgba(47, 52, 90, 0.8), rgba(47, 52, 90, 0.62)), url('../images/services/banner2.jpg') center
+	background-size: cover
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	margin-bottom: 40px
+	background-attachment: fixed 
+	h1
+		font-size: 5rem
+		text-align: center
+	hr
+		background-color: #fff
+		width: 20%
+		margin: unset
+	.row 
+		position: absolute
+		bottom: 0
+		justify-content: space-around
+		width: 100%
+		.services-link
+			background-color: rgba(#fff, .1)
+			align-self: flex-end
+			height: 45px
+			transition: all 0.5s ease
+			text-align: center
+			display: flex
+			align-items: center
+			justify-content: center
+			font-size: 16px
+			a:hover 
+				color: #fff
+			&:hover
+				height: 65px
+
+#group-service-nav
+	margin-bottom: 40px
+	a 
+		font-size: 16px
+		&:hover
+			color: #fff
+	.row div
+		
+		text-align: center
+		padding: 10px
+		transition: background-color 0.5s ease
+	.row div:nth-child(1) 
+		background-color: #A52A2A
+		
+		&:hover
+			background-color: saturate(#A52A2A, 50)
+	.row div:nth-child(2) 
+		background-color: #A5622A
+		&:hover
+			background-color: saturate(#A5622A, 50)
+	.row div:nth-child(3) 
+		background-color: #196363	
+		&:hover
+			background-color: saturate(#196363, 50)
+	.row div:nth-child(4) 
+		background-color: #228422
+		&:hover
+			background-color: saturate(#228422, 50)	
+	.row div:nth-child(5) 
+		background-color: #7C3737
+		&:hover
+			background-color: saturate(#7C3737, 50)
+
+.section-title
+	margin: 40px auto
+	text-align: center
+	font-size: 18px
+	h2
+		font-size: 2rem
+	span 
+		color: $accent
+	
+//particular services styles
+.section-body
+	font-size: 18px
+	.service-1
+		img 
+			width: 100%
+	.mini-title
+		text-align: center
+		font-size: 22px
+		background-color: #2B2E44
+		i 
+			font-size: 22px
+
+	.w-100
+		height: 20px
+	.price 
+		border-left: 1px solid #fff
+		&:hover
+			background-color: rgba(#fff, .2)
+			transition: all 0.5s ease
+.asterisk
+	color: $accent
+
+.price-block
+	.row
+		justify-content: space-around
+.foot-note
+	text-align: right
+	font-size: 15px
+	margin-top: 10px
+	.asterisk
+		font-size: 22px
+
+.fa-clock, .fa-check
+	color: $yellow
+		
+
+.service-2
+	img
+		width: 100%
+
+#long-line
+	line-height: 90%
+
+//group services styles
+
+.group-service-block
+	margin-bottom: 40px
+	.foot-note
+		margin: unset
+	.group-service-title
+		margin: auto
+		h3
+			border: 1px solid #FFFFFF
+			box-sizing: border-box
+			border-radius: 8px
+			text-align: center
+			padding: 4px
+		span
+			color: $accent
+	.fa-child
+		color: $accent
+	.block-1, .block-2, .block-3, .block-4
+		padding: 18px
+		transition: background-color 0.5s ease-in
+		
+	.block-1
+		background-color: $blue
+		.price
+			margin: auto
+		.row
+			height: 100%
+		.block-1-text
+			margin: auto
+		&:hover
+			background-color: lighten($blue, 10)
+	.block-3
+		background-color: $yellow
+		color: $blue
+		&:hover
+			background-color: lighten($yellow, 10)
+
+#group-service-1
+	.block-2
+		background-color: $accent
+		&:hover
+			background-color: lighten($accent, 10)
+
+		span
+			text-decoration: underline
+	.block-4
+		background: url("../images/services/gkp.jpg") center
+		background-size: cover
+		
+
+#group-service-2
+	.block-4
+		background-color: $accent
+		&:hover
+			background-color: lighten($accent, 10)
+		span
+			text-decoration: underline
+	.block-2
+		background: url("../images/services/plastilin2.jpg") center
+		background-size: cover
+	.block-3
+		background: url("../images/services/plastilin.jpg") center
+		background-size: cover
+
+
+#group-service-3
+	.block-2
+		background-color: $accent
+		&:hover
+			background-color: lighten($accent, 10)
+		span
+			text-decoration: underline
+	.block-3
+		span
+			text-decoration: underline
+	.block-4
+		background: url("../images/services/skazka.jpg") center
+		background-size: cover
+
+#group-service-4
+	.block-4
+		background-color: $yellow
+		color: $blue
+		&:hover
+			background-color: lighten($yellow, 10)
+	.block-2
+		background: url("../images/services/pesok.jpg") center
+		background-size: cover
+	.block-3
+		background: url("../images/services/glina.jpg") center
+		background-size: cover
+
+#group-service-5
+	.block-2
+		background-color: $accent
+		&:hover
+			background-color: lighten($accent, 10)
+		ol 
+			list-style-type: upper-roman
+		span
+			text-decoration: underline
+	.block-3
+		span
+			text-decoration: underline
+
+
+@media only screen and (max-width : 768px)
+	.services-banner h1
+		font-size: 3rem
+	#group-
+		&service-1 .block-4
+			height: 400px
+		&service-2
+			.block-2
+				display: none
+			.block-3
+				height: 400px
+		&service-3
+			.block-4
+				height: 400px
+		&service-4
+			.block-2 
+				height: 400px
+			.block-3
+				display: none
+		&service-5 .block-4
+			height: 400px
+	.services-banner .row .services-link
+		font-size: 14px
+
+@media only screen and (max-width: 575.98px)
+	.services-banner h1
+		font-size: 2rem

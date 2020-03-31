@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('contact') }}
+{% endblock %}
+{% block lc_content %}
+<header class="banner" id="contact-banner">
+    <h1>Контактная информация</h1>
+</header>
+<div class="container" id="contact-container">
+    <div class="row">
+        <div class="col-12 col-lg-6 order-2 order-lg-1">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A6694ba8948ed90bd33e7c05bd7ee87b5d58d122dd553219e35f4a3e887de094d&amp;source=constructor" width="100%" height="544" frameborder="0"></iframe>
+        </div>
+        <div class="col-12 col-lg-6 order-1 order-lg-2">
+            <div class="row contacts">
+                <div class="col-12"><i class="fas fa-map-marker-alt"></i> г. Томск, ул. Киевская 28Б, 2 этаж, офис 4</div>
+                <div class="col-12"><i class="fas fa-phone"></i> <a href="tel:+79138710577">+7-913-871-05-77</a></div>
+                <div class="col-12"><i class="far fa-envelope"> </i> <a href="mailto: govorushalogo@mail.ru">govorushalogo@mail.ru</a></div>
+            </div>
+            <div class="col-12" id="work-time">
+                <div id="work-time-block">
+                    <h5>Время работы:</h5>
+                    <p>
+                        <span class="time">Понедельник-Пятница: 09:00 - 20:00 <br></span>
+                        <span class="time">Суббота: 9:00 - 18:00 <br></span>
+                        <span class="time">Воскресение: выходной </span>
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 contact-form">
+            	<h5>Связаться с нами</h5>
+                <form>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <input type="text" class="form-control" placeholder="Имя и Фамилия">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <input type="email" class="form-control" placeholder="email">
+                        </div>
+                        <div class="col-12"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Ваше сообщение</textarea></div>
+                        <div class="col-12"> <button type="submit" class="button">Отправить</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('contact') }}
+{% endblock %}

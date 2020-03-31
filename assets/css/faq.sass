@@ -1,0 +1,59 @@
+@import 'vars.sass';
+
+.questions-header
+	background: linear-gradient(0deg, rgba(47, 52, 90, 0.62), rgba(47, 52, 90, 0.62)), url('../images/banner-faq.jpg') center
+	background-size: cover
+	height: 380px
+	align-items: center
+	justify-content: center
+	h1 span 
+		color: $yellow
+
+.section-title
+	display: flex
+	justify-content: center
+	align-items: center
+	margin-bottom: 20px
+
+.card-header
+	background-color: $blue
+	h2 button
+		color: #fff
+		&:hover, &:focus
+			color: $yellow
+			text-decoration: none
+
+.card-body
+	color: $blue
+
+.question, .answer
+	p:first-child
+		font-size: 20px
+		text-align: center
+		border-bottom: 1px solid #fff
+	i 
+		font-size: 10px
+
+.question
+	background-color: $blue	
+	i 
+		color: $yellow
+.answer
+	background-color: $accent
+	width: 90%
+	margin: auto
+	i
+		color: $blue
+	
+
+.qa-body
+	padding: 15px
+
+.question-form
+	width: 80%
+	margin: auto 
+	margin-top: 50px
+	.row input
+		margin-bottom: 10px
+	.button
+		margin-top: 10px

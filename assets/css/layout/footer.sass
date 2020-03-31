@@ -1,0 +1,48 @@
+.flex-footer
+	height: auto
+	background-color: $blue
+	margin-top: 40px
+	.row img 
+		width: 100%
+		
+	
+#schedule
+	width: 220px
+	margin: auto
+	margin-top: 15px
+	h5
+		text-align: center
+	span
+		&:before
+			display: inline-block
+			content: ''
+			width: 35px
+			margin-bottom: -4px
+			margin-right: 8px
+			height: 15px
+			border-radius: 5px
+			background-color: #fff
+		&:nth-child(2):before
+			background-color: $yellow
+		&:nth-child(3):before
+			background-color: $accent
+
+#contact-footer
+	position: relative
+	align-self: center
+	.social-icons
+		position: absolute
+		right: 0
+		bottom: 0 
+		font-size: 22px
+	p
+		margin: auto
+		line-height: 2.4
+		a 
+			text-decoration: underline
+			&:hover
+				color: $yellow
+		i 
+			color: $accent
+			margin-right: 11px
+			font-size: 16px

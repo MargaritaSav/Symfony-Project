@@ -1,0 +1,64 @@
+@import 'vars.sass';
+
+#contact-banner
+	justify-content: center 
+	align-items: center 
+	height: 300px
+
+#contact-container
+	background-color: rgba($blue, .5)
+	height: auto 
+	padding: 20px 0
+
+.contacts
+	text-align: center
+	margin-top: 20px
+	font-size: 19px
+
+	i 
+		color: $accent
+	a 
+		text-decoration: underline
+		&:hover
+			color: #fff
+
+#work-time
+	margin-top: 20px
+	#work-time-block
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column 
+		text-align: center
+	.time:nth-child(2)
+		color: $yellow
+	.time:nth-child(3)
+		color: $accent
+	h5, p
+		width: 80%
+		margin: auto 
+
+.contact-form
+	margin: 20px 0
+
+	.row input
+		margin-bottom: 10px
+	.button
+		margin-top: 10px
+	textarea
+		height: 180px
+	h5
+		text-align: center
+		margin-bottom: 15px 
+
+@media only screen and (max-width : 768px)
+	#contact-container
+		width: 100%
+		padding: 10px 0
+	iframe
+		height: 400px
+
+@media only screen and (max-width: 575.98px)
+	#contact-container
+		.col-12, .col
+			padding: unset 

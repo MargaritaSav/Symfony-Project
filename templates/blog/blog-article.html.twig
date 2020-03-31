@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{article.title}}{% endblock %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block lc_content %}
+<header class="article-header">
+    <div class="row align-items-center justify-content-center" id="article-header-row">
+        <div class="col-12">
+            <h1>{{article.title}}</h1>
+        </div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6" id="author">
+                    <p><i class="far fa-user"></i> {{article.author}}</p>
+                </div>
+                <div class="col-6" id="date">
+                    <p><i class="far fa-calendar-alt"></i> {{article.formatedDate}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<article class="container article-view">
+    {{article.content}}
+</article>
+{% endblock %}
