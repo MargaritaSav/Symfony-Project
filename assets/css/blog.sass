@@ -32,18 +32,20 @@ aside
 		font-size: 18px
 
 article
-	margin-top: 40px
 	background-color: #fff
 	color: #000
 	height: auto
 	padding-bottom: 20px
+	width: 80%
+	margin: 20px auto
 	.row
 		width: 100%
 	.psy, .speech, .games
-		padding: 5px
+		padding: 2px
 		background-color: #288208
 		border-radius: 9px
 		color: #fff
+		font-size: 12px
 	.speech
 		background-color: #EB9530
 	.games
@@ -61,8 +63,9 @@ article
 			border-bottom: 1px solid $blue
 
 .article-img
-	height: 400px
+	height: 200px
 	background-color: beige
+	background-size: cover
 
 .article
 	&-title, &-tag
@@ -75,6 +78,8 @@ article
 			margin: unset
 	&-title
 		margin-top: 10px
+		a
+			color: #000
 	&-tag, &-data 
 		border-left: 1px solid #000
 	&-data
@@ -101,6 +106,7 @@ article
 	margin-top: 47px 
 .article-view
 	background-color: #fff
+	padding: 20px
 
 #article-header-row
 	width: 100%
@@ -111,8 +117,21 @@ article
 	#date
 		text-align: left
 
-@media only screen and (max-width : 768px)
+#preloader
+	display: none
+	text-align: center
+	width: 100%
 
+#articles-list
+	opacity: 1
+	transition: opacity 0.5s ease
+	nav
+		width: fit-content 
+		margin: auto
+
+@media only screen and (max-width : 768px)
+	article
+		width: 100%
 	#blog-banner
 		height: 100%
 		img
@@ -122,6 +141,10 @@ article
 @media only screen and (max-width : 991px)
 	.article-responsive-info
 		display: block
+		.article-tag
+			display: block
+			.row
+				height: 100%
 	.article-lg-row
 		.article-data, .article-tag
 			display: none

@@ -2,11 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
+ * @Vich\Uploadable
  */
 class Article
 {
@@ -47,8 +52,40 @@ class Article
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string
+     */
+    private $featured_image;
+
+    /**
+     * @Vich\UploadableField(mapping="featured_images", fileNameProperty="featured_image")
+     * @var File
+    */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", inversedBy="articles")
+     */
+    private $categories;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Attachements", mappedBy="article", cascade={"persist"})
+     */
+    private $attachements;
+
+
+
     public function __construct(){
         $this->creation_date = new \DateTime();
+        $this->categories = new ArrayCollection();
+        $this->attachements = new ArrayCollection();
+        
     }
 
     public function getId(): ?int
@@ -139,10 +176,112 @@ class Article
         $date = $this->creation_date->format("j.n.Y");
         
         $month = $this->creation_date->format(".n.");
-        dump($month);
+        
            
        return str_replace($month, " ".$monthsList[$month]." ", $date);
 
 
     }
+
+
+     public function __toString()
+    {
+        return $this->title;
+    }
+
+     public function getFeaturedImage()
+     {
+         return $this->featured_image;
+     }
+
+     public function setFeaturedImage($featured_image)
+     {
+         $this->featured_image = $featured_image;
+
+         return $this;
+     }
+
+     public function setImageFile(File $image = null)
+     {
+        $this->imageFile = $image;
+        if ($image) {
+            $this->updatedAt = new \DateTime('now');
+        }
+     }
+
+     public function getImageFile()
+     {
+         return $this->imageFile;
+     }
+
+     public function getUpdatedAt(): ?\DateTimeInterface
+     {
+         return $this->updatedAt;
+     }
+
+     public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+     {
+         $this->updatedAt = $updatedAt;
+
+         return $this;
+     }
+
+     /**
+      * @return Collection|Category[]
+      */
+     public function getCategories(): Collection
+     {
+         return $this->categories;
+     }
+
+     public function addCategory(Category $category): self
+     {
+         if (!$this->categories->contains($category)) {
+             $this->categories[] = $category;
+         }
+
+         return $this;
+     }
+
+     public function removeCategory(Category $category): self
+     {
+         if ($this->categories->contains($category)) {
+             $this->categories->removeElement($category);
+         }
+
+         return $this;
+     }
+
+     /**
+      * @return Collection|Attachements[]
+      */
+     public function getAttachements(): Collection
+     {
+         return $this->attachements;
+     }
+
+     public function addAttachement(Attachements $attachement): self
+     {
+         if (!$this->attachements->contains($attachement)) {
+             $this->attachements[] = $attachement;
+             $attachement->setArticle($this);
+         }
+
+         return $this;
+     }
+
+     public function removeAttachement(Attachements $attachement): self
+     {
+         if ($this->attachements->contains($attachement)) {
+             $this->attachements->removeElement($attachement);
+             // set the owning side to null (unless already changed)
+             if ($attachement->getArticle() === $this) {
+                 $attachement->setArticle(null);
+             }
+         }
+
+         return $this;
+     }
+
+
 }

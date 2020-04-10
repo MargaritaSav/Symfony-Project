@@ -1,0 +1,57 @@
+ 	{% for article in articles %}
+        <article>
+            <div class="row">
+                <div class="col-12 article-img" style="background:url({{vich_uploader_asset(article, 'imageFile') }}) no-repeat center; background-size: cover"></div>
+                <div class="col-12 article-lg-row">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 article-title">
+                            <h4><a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}">{{article.title}}</a></h4>
+                        </div>
+                        <div class="col-lg-5 article-tag">
+                            <div class="row justify-content-around">
+                                {% for category in article.categories %}
+                                <div class="col-4">
+                                    <a class="psy">#{{category}}</a>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 article-responsive-info">
+                    <div class="row">
+                        <div class="col-6 article-tag">
+                            <div class="row justify-content-around align-items-center">
+                                {% for category in article.categories %}
+                                <a class="psy">#{{category}}</a>
+                            {% endfor %}
+                        	</div>
+                        </div>
+                    
+                    <div class="col-6 article-data">
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="far fa-user"></i></span>{{article.author}}</li>
+                            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>{{article.FormatedDate}}</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 article-lg-row">
+                <div class="row">
+                    <div class="col-12 col-lg-8  article-review">
+                        <p>{{article.review}}</p>
+                    </div>
+                    <div class="col-lg-4 article-data">
+                        <ul class="fa-ul">
+                            <li><span class="fa-li"><i class="far fa-user"></i></span>Author</li>
+                            <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>{{article.FormatedDate}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12"><a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}" class="button">Читать</a></div>
+    </article>
+    {% endfor %}
+    {{ knp_pagination_render(articles) }}
+

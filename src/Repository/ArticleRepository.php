@@ -6,6 +6,8 @@ use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
+
+
 /**
  * @method Article|null find($id, $lockMode = null, $lockVersion = null)
  * @method Article|null findOneBy(array $criteria, array $orderBy = null)
@@ -26,6 +28,7 @@ class ArticleRepository extends ServiceEntityRepository
     public function findLatest() {
         return $this->createQueryBuilder('a')
             ->setMaxResults(3)
+            ->orderBy('a.id', 'DESC')
             ->getQuery()
             ->getResult()
         ;

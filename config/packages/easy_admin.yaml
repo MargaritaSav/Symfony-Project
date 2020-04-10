@@ -1,0 +1,72 @@
+easy_admin:
+  user:
+    display_name: true
+    display_avatar: true
+  site_name: 'Логоцентр "Говоруша"'
+  design:
+    form_theme: # Both themes are for ckeditor integration
+      - "@EasyAdmin/form/bootstrap_4.html.twig"
+      - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
+
+    brand_color: '#2F345A'
+    menu:
+      - label: 'Публикации блога'
+        icon: 'user-edit'
+        children: 
+          - { entity: 'Article', label: 'Статьи', icon: pencil-alt}
+          - { entity: 'Category', label: 'Категории статей', icon: tags}
+      
+      - { entity: 'Questions', label: 'Вопросы от посетителей сайта', icon: question}
+    
+  entities:
+    Article:
+      class: App\Entity\Article
+      label: 'Статьи'
+      list:
+        title: "Статьи"
+        help: "Список статей, опубликованных в рубрике 'Блог'"
+        fields:
+          - {property: "title", label: "Заголовок" } 
+          - {property: "author", label: "Автор" } 
+          - {property: "review", label: "Краткое описание"} 
+          - {property: 'featured_image', label: 'Основное изображение', type: 'image', base_path: '%app.path.featured_images%' }
+          - {property: "categories", label: "Рубрики", type: 'array'} 
+          - {property: "creation_date", label: "Дата добавления"} 
+      search:
+        fields: ['title', 'author', 'creation_date']
+      form:
+        fields:
+          - {property: 'title', label: 'Заголовок статьи'}
+          - {property: 'author', label: 'Автор статьи' }
+          - {property: 'review', label: 'Краткое описание', type: 'text_editor'} 
+          - {property: 'imageFile', label: 'Основное изображение', type: 'vich_image' }
+          - {property: 'content', label: 'Содержание', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+          - {property: 'categories', label: 'Рубрики статьи' }
+          - { property: 'attachements', type: 'collection', type_options: {entry_type: 'App\Form\AttachementType', by_reference: false}}
+    Category:
+      class: App\Entity\Category
+      form:
+        fields:
+          - {property: 'name', label: 'Название рубрики'}
+    Questions:
+      disabled_actions: ['new']
+      class: App\Entity\Questions
+      list:
+        actions:
+          - { name: 'edit', label: 'Ответить на вопрос' }
+        fields:
+          - {property: 'askedBy_name', label: 'Автор вопроса'}
+          - {property: 'askedBy_email', label: 'e-mail автора'}
+          - {property: 'question', label: 'Вопрос:'}
+          - {property: 'isAnswered', label: 'Ответ опубликован'}
+      form:
+        fields:
+          - {property: 'askedBy_name', label: 'Автор вопроса', type_options: {disabled: true}}
+          - {property: 'askedBy_email', label: 'e-mail автора', type_options: {disabled: true}}
+          - {property: 'question', label: 'Вопрос:', type_options: {disabled: true}}
+          - {property: 'answer', label: 'Введите ответ', type: 'text_editor'}
+          - {property: 'isAnswered', label: 'Поставьте галочку, если хотите опубликовать ответ на странице "Вопросы и ответы"'}
+          
+
+#        - App\Entity\Category
+#        - App\Entity\User

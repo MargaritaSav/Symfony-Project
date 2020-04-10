@@ -1,0 +1,21 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    filter_sets:
+
+        # name our filter set "my_background_filter"
+        background:
+            filters:
+
+                # use and setup the "background" filter
+                background:
+
+                    # set the background color to #00ffff
+                    color: '#00ffff'
+
+                    # set a size different from the input image
+                    
+
+                    # center input image on the newly created background
+                    position: center

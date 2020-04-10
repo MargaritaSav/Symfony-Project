@@ -74,19 +74,26 @@
         </div>
     </div>
     <div class="question-form">
-        <form>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Имя и Фамилия">
-                </div>
-                <div class="col">
-                    <input type="email" class="form-control" placeholder="email">
-                </div>
-                <div class="col-12"><textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Ваш вопрос</textarea></div>
-                <div class="col-12"> <button type="submit" class="button">Отправить</button>
-                </div>
+        <div class="alert alert-success" role="alert" id="question-success">
+            Ваш вопрос отправлен! Вы получите уведомление об ответе на указанный Вами электронный адрес 
+        </div>
+        {{form_start(form, {'attr': {'id': 'question-sf-form'}})}}
+        <div class="row">
+            <div class="col">
+                {{form_row(form.askedBy_name)}}
             </div>
-        </form>
+            <div class="col">
+                {{form_row(form.askedBy_email)}}
+            </div>
+            <div class="col-12">{{form_row(form.question)}}</div>
+            <div class="col-12"> <div class="row"><div class="col">{{form_row(form.send)}}</div><div class="col"><div id="preloader">
+                <div class="spinner-border text-warning" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div></div></div>
+            </div>
+        </div>
+        {{form_end(form)}}
     </div>
 </section>
 {% endblock %}

@@ -4,7 +4,7 @@
 {{ encore_entry_link_tags('blog') }}
 {% endblock %}
 {% block lc_content %}
-<header class="article-header">
+<header class="article-header" style="background:url({{vich_uploader_asset(article, 'imageFile') }}) no-repeat center; background-size: cover">
     <div class="row align-items-center justify-content-center" id="article-header-row">
         <div class="col-12">
             <h1>{{article.title}}</h1>
@@ -22,6 +22,12 @@
     </div>
 </header>
 <article class="container article-view">
-    {{article.content}}
+    {{article.content|raw}}
+    {% if article.attachements is not null %}
+    {% for attachment in article.attachements %}
+       <i class="fas fa-paperclip"></i> <a href="/uploads/files/{{attachment.fileName}}"  style="color: black">{{attachment.fileName}}</a>
+    
+    {% endfor %}
+    {% endif %}
 </article>
 {% endblock %}

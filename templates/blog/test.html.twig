@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+{% block lc_content %}
+{% for item in articles %}
+<p>{{item.title}}</p>
+
+{% endfor %}
+{% endblock %}
