@@ -2,10 +2,11 @@
 fos_ck_editor:
     configs:
         my_config:
-            toolbar: full
+            toolbar: standard
              # - { name: "styles", items: ['Bold', 'Italic', 'Underline', 'Strike', 'Blockquote', '-', 'Link', '-', 'RemoveFormat', '-', 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'Image', 'Table', '-', 'Styles', 'Format','Font','FontSize', '-', 'TextColor', 'BGColor', 'Source', 'Attachments']}
             filebrowserBrowseRoute: elfinder
             filebrowserBrowseRouteParameters: []
+            height: 600
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'

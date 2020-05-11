@@ -25,7 +25,8 @@ class ArticleRepository extends ServiceEntityRepository
     * @return Article[]
     */
 
-    public function findLatest() {
+    public function findLatest() 
+    {
         return $this->createQueryBuilder('a')
             ->setMaxResults(3)
             ->orderBy('a.id', 'DESC')

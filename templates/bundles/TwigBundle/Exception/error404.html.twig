@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <style type="text/css">
+    	#notfound{
+    		margin-top: 80px;
+    		background: linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 60, 0.62)), url("{{ asset('build/images/404.png') }}") no-repeat ;
+    		background-size: cover;
+    		height: 100vh;
+    		display: flex;
+    		align-items: center;
+    		justify-content: center;
+    		
+    	
+    	}
+    	.notfound{
+    		width: 60%;
+    		text-align: center;
+    		font-size: 22px;
+    	}
+    	.notfound a{
+    		text-decoration: underline;
+    	}
+
+    </style>
+{% endblock %}
+
+{% block lc_content %}
+<div id="notfound">
+    <div class="notfound">
+        <div class="notfound-404">
+            <h1>Упс! </h1>
+        </div>
+        <h2>404 - Страница не найдена</h2>
+        <p> Страница, которую Вы ищете могла быть удалена, переименована или не существует. Возможно Вы допустили опечатку в адресе странице (URL).</p>
+        <a href="{{ path('lc_home') }}">Вернуться на главную страницу</a>
+    </div>
+
+</div>
+{% endblock %}

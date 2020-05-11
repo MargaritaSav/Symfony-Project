@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ encore_entry_link_tags('appointment') }}
+{% endblock %}
+{% block lc_content %}
+
+<div class="banner">
+  <h1>Записаться на консультацию</h1>
+</div>
+<div class="instructions">
+    <p>1. Выберите специалиста</p>
+    <p><i class="fas fa-chevron-down"></i></p>
+    <p>2. Выберите доступную дату</p>
+    <p><i class="fas fa-chevron-down"></i></p>
+    <p>3. Введите необходимую информацию</p>
+    <p><i class="fas fa-chevron-down"></i></p>
+    <p>4. Нажмите на кнопку "Записаться"</p>
+    <p><i class="fas fa-chevron-down"></i></p>
+    <p>5. Как только специалист подтвердит запись на консультацию, Вы получите уведомление на указанную Вами электронную почту </p>
+</div>
+{% for message in app.flashes('notice') %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+<div id="specialistFilter"></div>
+<div id="preloader">
+    <div class="spinner-border text-light" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div id='calendar'>
+</div>
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" id="time-block">
+                        <div class="row">
+                            <div class="col-4">
+                                <h5>Время:</h5>
+                            </div>
+                            <div class="col-8">
+                                <p id="time"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" id="specialist-block">
+                        <div class="row">
+                            <div class="col-12">
+                                <h5>Специалист:</h5>
+                            </div>
+                            <div class="col-12">
+                                <p id="specialist-name"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" id="client-block">
+                        <div class="row">
+                            <div class="col-12">
+                                <p>Чтобы записаться на данную консультацию, пожалуйста, заполните форму</p>
+                                <a href="" id="inscriptionLink">Открыть форму</a>
+                            </div>
+                            <div class="col-12" id="client">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('appointment') }}
+{% endblock %}

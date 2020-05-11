@@ -15,7 +15,7 @@
             <div class="card-header" id="headingOne">
                 <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Collapsible Group Item #1
+                        Question #1
                     </button>
                 </h2>
             </div>
@@ -29,7 +29,7 @@
             <div class="card-header" id="headingTwo">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Collapsible Group Item #2
+                        Question #2
                     </button>
                 </h2>
             </div>
@@ -43,7 +43,7 @@
             <div class="card-header" id="headingThree">
                 <h2 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Collapsible Group Item #3
+                        Question #3
                     </button>
                 </h2>
             </div>
@@ -59,20 +59,22 @@
     <div class="section-title">
         <h2>Задать свой вопрос</h2>
     </div>
+    {% for question in questions %}
     <div class="qa-block">
         <div class="question">
             <div class="qa-body">
-                <p><span class="qa-name">Анна Иванова</span> спрашивает: </p>
-                <p><i class="fas fa-quote-left"></i> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor <i class="fas fa-quote-right"></i></p>
+                <p><span class="qa-name">{{question.askedByName}}</span> спрашивает: </p>
+                <p><i class="fas fa-quote-left"></i> {{question.question}} <i class="fas fa-quote-right"></i></p>
             </div>
         </div>
         <div class="answer">
             <div class="qa-body">
-                <p><span class="qa-name">Ирина Сорокина</span>, <span class="qa-post">учитель-логопед</span> отвечает: </p>
-                <p><i class="fas fa-quote-left"></i> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor <i class="fas fa-quote-right"></i></p>
+                <p><span class="qa-name">{{question.answeredBy.name}}</span>, <span class="qa-post">{{question.answeredBy.post}},</span> отвечает: </p>
+                {{ question.answer|raw }} 
             </div>
         </div>
     </div>
+    {% endfor %}
     <div class="question-form">
         <div class="alert alert-success" role="alert" id="question-success">
             Ваш вопрос отправлен! Вы получите уведомление об ответе на указанный Вами электронный адрес 

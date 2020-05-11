@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ArticleRepository")
@@ -24,11 +25,14 @@ class Article
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length (max = 100, maxMessage = "Допустимая максимальная длина заголовка -  {{ limit }} символов")
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length (min = 100, max = 255, minMessage = "Допустимая минимальная длина описания - {{ limit }} символов",
+     *      maxMessage = "Допустимая максимальная длина описания -  {{ limit }} символов")
      */
     private $review;
 
@@ -48,12 +52,7 @@ class Article
     private $creation_date;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $slug;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255)
      * @var string
      */
     private $featured_image;
@@ -154,18 +153,6 @@ class Article
     public function setCreationDate(\DateTimeInterface $creation_date): self
     {
         $this->creation_date = $creation_date;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(?string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }

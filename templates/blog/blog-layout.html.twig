@@ -19,15 +19,15 @@
     </div>
     <div class="row">
         <aside class="col-lg-3 col-12">
-            <p> Статьи по темам:
+            <p> Статьи по темам: </p>
                 <ul class="fa-ul" id="categories">
                     {% for category in categories %}
                     <li><span class="fa-li"><i class="fas fa-pencil-alt"></i></span><a href="{{path('lc_blog_category', {id: category.id})}}">{{category.name}}</a></li>
                     {% endfor %}
                 </ul>
-            </p>
+            
         </aside>
-        <div class="col-lg-9 col-12 ">
+        <div class="col-lg-9 col-12" id="articles">
             <div id="preloader">
                 <div class="spinner-border text-warning" role="status">
                     <span class="sr-only">Loading...</span>
@@ -47,9 +47,7 @@
                                 <div class="col-lg-5 article-tag">
                                     <div class="row justify-content-around">
                                         {% for category in article.categories %}
-                                        <div class="col-4">
-                                            <a class="psy">#{{category}}</a>
-                                        </div>
+                                            <a class="psy">#{{category}}</a>    
                                         {% endfor %}
                                     </div>
                                 </div>
@@ -75,12 +73,12 @@
                     </div>
                     <div class="col-12 article-lg-row">
                         <div class="row">
-                            <div class="col-12 col-lg-8  article-review">
-                                <p>{{article.review}}</p>
+                            <div class="col-12 col-lg-7  article-review">
+                                {{article.review|raw}}
                             </div>
-                            <div class="col-lg-4 article-data">
+                            <div class="col-lg-5 article-data">
                                 <ul class="fa-ul">
-                                    <li><span class="fa-li"><i class="far fa-user"></i></span>Author</li>
+                                    <li><span class="fa-li"><i class="far fa-user"></i></span>{{article.author}}</li>
                                     <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>{{article.FormatedDate}}</li>
                                 </ul>
                             </div>
@@ -94,9 +92,7 @@
             </div>
         </div>
     </div>
-    <button id="test-btn">Test</button><br>
-    <div id="test-div"> </div>
-    </div>
+
 </section>
 {% endblock %}
 {% block javascripts %}

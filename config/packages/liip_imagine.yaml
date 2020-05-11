@@ -15,7 +15,14 @@ liip_imagine:
                     color: '#00ffff'
 
                     # set a size different from the input image
-                    
+                    size: [1026, 684]
 
                     # center input image on the newly created background
                     position: center
+        thumbnailBlo:
+            quality: 85
+            filters:
+                upscale:
+                    min: [440, 300]
+                thumbnail: { size: [440, 300], mode: outbound }
+

@@ -1,0 +1,68 @@
+{% extends '@EasyAdmin/default/list.html.twig' %}
+{% block search_action %}
+<div id="specialist">Загрузка...</div>
+{% endblock %}
+{% block main %}
+{% block main_stylesheets %}
+{{ encore_entry_link_tags('calendar') }}
+{% endblock %}
+<div class="row" id="buttons">
+    
+    <div class="col"><button type="button" class="btn btn-primary" id="all">Всё расписание</button></div>
+    <div class="col"><button type="button" class="btn btn-danger" id="not-confirmed">Неподтверждённые заявки</button></div>
+    <div class="col"><button type="button" class="btn btn-warning" id="booked-time">Запланированные консультации</button></div>
+    <div class="col"><button type="button" class="btn btn-success" id="free-time">Свободное время</button></div>
+</div>
+<div id='calendar'></div>
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle" >Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <div class="row">    
+               		<div class="col-12" id="time-block">
+	               		<div class="row">
+	               			<div class="col"><h5>Время:</h5></div>
+	               			<div class="col"> <p id="time"></p> </div>
+	               		</div>
+               		</div>
+               		<div class="col-12" id="specialist-block">
+               			<div class="row" > 
+               				<div class="col-12"><h5>Специалист</h5></div>
+               				<div class="col-12"> <p id="specialist-name"></p> </div>
+               		 	</div>
+               		</div>
+               		
+               		<div class="col-12" id="client-block">
+						<div class="row" >
+							<div class="col-12"><h5>Клиент</h5></div>
+							<div class="col-12" id="client"></div>
+						</div>
+					</div>
+
+               </div>
+            </div>
+            <form action="" method="POST">
+            <div class="modal-footer">
+            	
+            		<input type="hidden" name="eventId" id="eventId" value="">
+                	<button class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                	<button class="btn btn-danger" id="delete" type="submit">Удалить</button>
+                	<a type="button" class="btn btn-primary" id="edit">Редактировать</a>
+                	<button class="btn btn-warning" id="cancel" type="submit">Отменить</button>
+                	<button class="btn btn-success" id="confirm" type="submit">Подтвердить запись на приём</button>
+			
+            </div>
+        	</form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block body_javascript %}
+{{ encore_entry_script_tags('calendar') }}
+{% endblock %}

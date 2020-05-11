@@ -38,5 +38,6 @@ security:
         - { path: ^/efconnect, role: ROLE_ADMIN }
         - { path: ^/elfinder, role: ROLE_ADMIN }
         - { path: ^/logoped-manager, roles: ROLE_ADMIN }
+        - { path: ^/questions/send-answer, roles: ROLE_ADMIN }
 
         # - { path: ^/profile, roles: ROLE_USER }

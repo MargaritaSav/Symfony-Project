@@ -36,10 +36,7 @@ class Questions
      */
     private $isAnswered = false;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Admin")
-     */
-    private $answeredBy;
+   
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -50,6 +47,16 @@ class Questions
      * @ORM\Column(type="string", length=255)
      */
     private $askedBy_email;
+
+    /**
+     * @ORM\Column(type="boolean", options={"default": false})
+     */
+    private $isAnswerSent = false;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Specialist", inversedBy="questions")
+     */
+    private $answered_by;
 
 
     public function __construct(){
@@ -109,17 +116,6 @@ class Questions
         return $this;
     }
 
-    public function getAnsweredBy(): ?Admin
-    {
-        return $this->answeredBy;
-    }
-
-    public function setAnsweredBy(?Admin $answeredBy): self
-    {
-        $this->answeredBy = $answeredBy;
-
-        return $this;
-    }
 
     public function getAskedByName(): ?string
     {
@@ -143,5 +139,33 @@ class Questions
         $this->askedBy_email = $askedBy_email;
 
         return $this;
+    }
+
+    public function getIsAnswerSent(): ?bool
+    {
+        return $this->isAnswerSent;
+    }
+
+    public function setIsAnswerSent(bool $isAnswerSent): self
+    {
+        $this->isAnswerSent = $isAnswerSent;
+
+        return $this;
+    }
+
+    public function getAnsweredBy(): ?Specialist
+    {
+        return $this->answered_by;
+    }
+
+    public function setAnsweredBy(?Specialist $answered_by): self
+    {
+        $this->answered_by = $answered_by;
+
+        return $this;
+    }
+
+    public function __toString(){
+        return $this->askedBy_name;
     }
 }

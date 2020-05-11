@@ -1,0 +1,100 @@
+@import 'vars.sass';
+
+
+.banner
+	background: linear-gradient(0deg, rgba(47, 52, 90, 0.62), rgba(47, 52, 90, 0.62)), url('../images/orthophoniste.jpg') center
+	height: 300px
+	align-items: center
+	justify-content: center
+	text-align: center
+
+.instructions
+	margin-top: 50px
+	h1
+		text-align: center
+	p 
+		text-align: center
+		padding: 10px
+		border-radius: 10px
+		width: 70%
+		margin: auto
+		font-size: 22px
+		
+		&:nth-child(1)
+			background-color: $blue
+		&:nth-child(3)
+			background-color: $accent
+		&:nth-child(5)
+			background-color: $yellow
+			color: $blue
+		&:nth-child(7)
+			background-color: $blue
+		&:nth-child(9)
+			background-color: $accent
+			margin-bottom: 40px
+	i 
+		font-size: 36px
+
+
+#specialist, #calendar
+	max-width: 990px
+	margin: auto
+
+#calendar
+	background-color: $blue
+	padding: 20px
+	display: none
+	
+
+	.spinner-border
+		text-align: center
+	.fc-button-primary, .fc-button-primary:disabled
+		background-color: $accent	
+	td.fc-today
+		background-color: #4682b4	
+	.fc-day-grid-event
+		cursor: pointer
+
+#eventModal
+	color: black
+	#client-block 
+		a
+			color: $accent
+		#client
+			display: none
+	.modal-title
+		width: 100%
+		text-align: center
+		background-color: $blue
+		color: #fff
+		padding: 2px 
+		border-radius: 5px
+	#time-block
+		border-right: 1px solid #000
+		#time
+			text-align: center
+			background-color: $yellow
+			padding: 5px
+			border-radius: 5px
+	#specialist-name
+		text-align: center
+		padding: 4px
+		border-radius: 5px
+		background-color: $accent
+		color: #fff
+
+
+#preloader
+	display: block
+
+.fc-header-toolbar
+	display: flex
+	flex-wrap: wrap
+
+label.required:after
+	content: " *"
+	color: red
+
+@media only screen and (max-width: 399px)
+	.banner h1
+		font-size: 2rem

@@ -2,13 +2,6 @@ import '../css/blog.sass';
 import $ from 'jquery';
 
 
-$('#test-btn').click(function(e){
-	e.preventDefault();
-	$.ajax({url: "http://localhost/logocenter/public/index.php/blog", success: function(result){
-    $("#test-div").html(result);
-  }});
-})
-
  $(document).ajaxStart(function(){
     $("#preloader").show();
     $('#articles-list').css("opacity", "0");

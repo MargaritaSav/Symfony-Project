@@ -18,7 +18,7 @@
                 <p>Логопедическая помощь детям и взрослым <br> в г. Томске</p>
                 <a href="{{ path('lc_services') }}" class="button">Узнать цены</a>
             </div>
-        </div>0
+        </div>
         <div class="col-md0-5 banner-composition" id="banner-img">
             
                 <img src="{{ asset('build/images/homepage/bird.png') }}" alt="bird">
@@ -41,7 +41,7 @@
 <section id="section-1">
     <div class="section-header">
         <div class="section-title-deco">
-            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <img src="{{ asset('build/images/homepage/plume.png') }}" alt="перо птицы Говоруши">
             <h2>Направления <span>работы</span></h2>
         </div>
         
@@ -51,7 +51,7 @@
             <div class="col-sm-12 col-lg-5 col-md-6">
                 <div class="my-card">
                     <div class="my-card-header">
-                        <img src="{{ asset('build/images/homepage/family.png') }}" alt="decoration">
+                        <img src="{{ asset('build/images/homepage/family.png') }}" alt="семья">
                     </div>
                     <div class="my-card-body" id="one">
                         <div class="my-card-title">
@@ -64,7 +64,7 @@
                             </p>
                         </div>
                         <div class="my-card-footer">
-                            <a href="" class="button">Подробнее</a>
+                            <a href="{{path('lc_particular')}}" class="button">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
             <div class="col-sm-12 col-lg-5 col-md-6">
                 <div class="my-card">
                     <div class="my-card-header">
-                        <img src="{{ asset('build/images/homepage/puzzle.png') }}" alt="decoration">
+                        <img src="{{ asset('build/images/homepage/puzzle.png') }}" alt="пазл">
                     </div>
                     <div class="my-card-body" id="two">
                         <div class="my-card-title">
@@ -88,7 +88,7 @@
                             </p>
                         </div>
                         <div class="my-card-footer">
-                            <a href="" class="button">Подробнее</a>
+                            <a href="{{path('lc_group')}}" class="button">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
             <div class="col-sm-12 col-lg-5 col-md-6">
                 <div class="my-card">
                     <div class="my-card-header">
-                        <img src="{{ asset('build/images/homepage/classroom.png') }}" alt="decoration">
+                        <img src="{{ asset('build/images/homepage/classroom.png') }}" alt="занятие в школе">
                     </div>
                     <div class="my-card-body" id="three">
                         <div class="my-card-title">
@@ -108,7 +108,7 @@
                             </p>
                         </div>
                         <div class="my-card-footer">
-                            <a href="" class="button">Подробнее</a>
+                            <a href="{{path('lc_group')}}" class="button">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,7 @@
             <div class="col-sm-12 col-lg-5 col-md-6">
                 <div class="my-card">
                     <div class="my-card-header">
-                        <img src="{{ asset('build/images/homepage/play.png') }}" alt="decoration">
+                        <img src="{{ asset('build/images/homepage/play.png') }}" alt="дети играют">
                     </div>
                     <div class="my-card-body" id="four">
                         <div class="my-card-title">
@@ -128,7 +128,7 @@
                             </p>
                         </div>
                         <div class="my-card-footer">
-                            <a href="" class="button">Подробнее</a>
+                            <a href="{{path('lc_group')}}" class="button">Подробнее</a>
                         </div>
                     </div>
                 </div>
@@ -139,49 +139,49 @@
 <section id="section-2">
     <div class="section-header">
         <div class="section-title-deco">
-            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <img src="{{ asset('build/images/homepage/plume.png') }}" alt="перо птицы Говоруши">
             <h2>Наши <span>специалисты</span></h2>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-3 col-md-6">
             <div class="card">
-                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('build/images/homepage/demo.jpg')| imagine_filter('thumbnailBlo') }}" class="card-img-top" alt="логопед">
                 <div class="card-body">
                     <h5 class="card-title">Савельева Юлия Леонидовна</h5>
                     <h6 class="card-subtitle mb-2">Учитель-логопед I категории</h6>
                     <p class="card-text">Оказываемые услуги: коррекция звукопроизношения и дисграфии. Работаю в школе, имею опыт работы по устранению ошибок на письме, обучению чтению. Открыта для общения со взрослыми для постановки звуков.</p>
-                    <a href="#" class="btn button">Резюме</a>
+                    
                 </div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
             <div class="card">
-                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('build/images/homepage/demo.jpg') | imagine_filter('thumbnailBlo') }}" class="card-img-top" alt="логопед">
                 <div class="card-body">
                     <h5 class="card-title">Савельева Юлия Леонидовна</h5>
                     <h6 class="card-subtitle mb-2">Учитель-логопед I категории</h6>
-                    <a href="#" class="btn button">Резюме</a>
+                    
                 </div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
             <div class="card">
-                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('build/images/homepage/demo.jpg') | imagine_filter('thumbnailBlo') }}" class="card-img-top" alt="логопед">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn button">Резюме</a>
+                    
                 </div>
             </div>
         </div>
         <div class="col-sm-12 col-lg-3 col-md-6">
             <div class="card">
-                <img src="{{ asset('build/images/homepage/demo.jpg') }}" class="card-img-top" alt="...">
+                <img src="{{ asset('build/images/homepage/demo.jpg') | imagine_filter('thumbnailBlo') }}" class="card-img-top" alt="логопед">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn button">Резюме</a>
+                    
                 </div>
             </div>
         </div>
@@ -190,7 +190,7 @@
 <section id="section-3">
     <div class="section-header">
         <div class="section-title-deco">
-            <img src="{{ asset('build/images/homepage/plume.png') }}">
+            <img src="{{ asset('build/images/homepage/plume.png') }}" alt="перо птицы Говоруши">
             <h2>Последние публикации <span>блога</span></h2>
         </div>
     </div>
@@ -199,51 +199,20 @@
         <div class="col-12 col-md-6 col-lg-3">
             <div class="blog-hp-card">
                 <div class="blog-hp-card-header">
-                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
+                    <img src="{{vich_uploader_asset(article, 'imageFile')| imagine_filter('thumbnailBlo') }}"  class="card-img-top"  alt="{{article.title}}">
                     <div class="blog-hp-card-date">
                         <p>{{article.FormatedDate}}</p>
                     </div>
                 </div>
                 <div class="blog-hp-card-body">
                     <h5 class="card-title"><a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}">{{article.title}}</a></h5>
-                    <p class="card-text">{{article.review}}</p>
-                    <p class="card-text"></p>
+                    <div class="card-text">{{article.review|raw}}</div>
                     <a href="{{path('lc_article_view', {id: article.id, slugpath: article.slugPath})}}" class="btn button">Читать дальше</a>
                 </div>
             </div>
         </div>
         {% endfor %}
-        <div class="col-12 col-md-6 col-lg-3">
-            <div class="blog-hp-card">
-                <div class="blog-hp-card-header">
-                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
-                    <div class="blog-hp-card-date">
-                        <p>23 марта 2020</p>
-                    </div>
-                </div>
-                <div class="blog-hp-card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi qui asperiores necessitatibus. Ipsam doloribus facilis, ut repudiandae voluptatum veniam ipsa ducimus quibusdam laboriosam. Ea adipisci, illum veritatis saepe tempore, sint.</p>
-                    <p class="card-text"></p>
-                    <a href="#" class="btn button">Читать дальше</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3 ">
-            <div class="blog-hp-card">
-                <div class="blog-hp-card-header">
-                    <img src="{{ asset('build/images/homepage/demo-2.jpg') }}" class="card-img-top" alt="...">
-                    <div class="blog-hp-card-date">
-                         <p>23 марта 2020</p>
-                    </div>
-                </div>
-                <div class="blog-hp-card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi qui asperiores necessitatibus. Ipsam doloribus facilis, ut repudiandae voluptatum veniam ipsa ducimus quibusdam laboriosam. Ea adipisci, illum veritatis saepe tempore, sint.</p>
-                    <a href="#" class="btn button">Читать дальше</a>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </section>
 

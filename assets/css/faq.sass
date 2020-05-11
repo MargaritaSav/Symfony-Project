@@ -49,10 +49,13 @@
 .qa-body
 	padding: 15px
 
+
 .question-form
 	width: 80%
 	margin: auto 
 	margin-top: 50px
+	#question_form_question
+		height: 200px
 	.row input
 		margin-bottom: 10px
 	.button
@@ -60,3 +63,12 @@
 
 #question-success
 	display: none 
+
+label.required:after
+	content: " *"
+	color: red
+
+
+@media only screen and (max-width: 425px)
+	.question-form
+		width: 100%

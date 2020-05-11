@@ -1,0 +1,90 @@
+#calendar
+	padding: 20px
+	.fc-today
+		background-color: #fbb5b2
+	.fc-day
+		transition: background-color .5s
+		&:hover
+			background-color: #f0f8ff
+
+#buttons
+	padding: 20px
+	text-align: center
+
+
+#modalTitle
+	width: 100%
+	text-align: center 
+
+#specialist-block, #client-block
+	border-top: 1px solid rgba(0, 0, 0, .4)
+	padding: 10px
+
+#specialist-block
+	background-color: #ffebcd
+
+#time-block
+	background-color: #daa520
+	h5
+		margin: 10px
+	#time, .row .col:nth-child(2) 
+		margin: auto
+	#time
+		border: 1px solid
+		border-radius: 5px
+		text-align: center
+	
+
+
+#client-block
+	background-color: #fff8dc
+	#client 
+		.row div:nth-child(4)
+			text-align: center
+			padding: 8px
+			
+			h6
+				margin: auto
+				font-size: 15px
+		#client-description
+			
+			border-left: 1px solid rgba(0, 0, 0, .4)
+			p
+				margin: auto
+
+	#client-mail, #client-phone
+		border-top: 1px solid rgba(0, 0, 0, .4)
+		border-bottom: 1px solid rgba(0, 0, 0, .4)
+		padding: 3px 0
+		font-weight: bold
+		p 
+			margin: auto
+			width: fit-content
+	#client-mail
+		border-right: 1px solid rgba(0, 0, 0, .4)
+
+.form-group
+	flex-wrap: nowrap
+
+.fc-day-grid-event
+	cursor: pointer
+
+.modal-body
+	.row
+		margin: unset
+		#specialist-block
+			width: 100%
+	#specialist-name, #client-name p 
+		border: 1px solid
+		border-radius: 5px
+		width: fit-content
+		padding: 0 5px
+		font-size: 16px
+
+.modal-header
+	background-color: #f0e68c
+
+#eventModal
+	a:hover
+		color: #fff
+

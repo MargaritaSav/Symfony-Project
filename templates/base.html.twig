@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -31,16 +31,7 @@
                                     <li><a href="{{ path('lc_group') }}">Групповые занятия</a></li>
                                 </ul>
                             </li>
-                            <li class="submenu-parent" id="sub-2"><span>Блог Говоруши</span>
-                                <ul class="submenu">
-
-                                    <li><a href="">Психология</a></li>
-                                    <li><a href="">Логопедия</a></li>
-                                    <li><a href="">Развивающие игры</a></li>
-                                    <li><a href="{{ path('lc_blog') }}">Все публикации блога</a></li>
-                                </ul>
-                            </li>
-                            <!--<li><a href="{{ path('lc_feedback') }}">Отзывы</a></li>-->
+                            <li><a href="{{ path('lc_blog') }}">Блог Говоруши</a></li> 
                             <li><a href="{{ path('lc_faq') }}">Вопросы и ответы</a></li>
                             <li><a href="{{ path('lc_contact') }}">Контакты</a></li>
                             <li><a class="button" href="{{ path('lc_appointment') }}">Записаться</a></li>
@@ -56,14 +47,7 @@
                                 <li><a href="{{ path('lc_group') }}">Групповые занятия</a></li>
                             </ul>
                         </li>
-                        <li class="submenu-parent" id="elem-2"><a href="{{ path('lc_blog') }}">Блог Говоруши</a>
-                            <ul class="submenu">
-                                <li><a href="">Психология</a></li>
-                                <li><a href="">Логопедия</a></li>
-                                <li><a href="">Развивающие игры</a></li>
-                            </ul>
-                        </li>
-                        <!--<li><a href="{{ path('lc_feedback') }}">Отзывы</a></li>-->
+                        <li><a href="{{ path('lc_blog') }}">Блог Говоруши</a></li>
                         <li><a href="{{ path('lc_faq') }}">Вопросы и ответы</a></li>
                         <li><a href="{{ path('lc_contact') }}">Контакты</a></li>
                         <li><a class="button" href="{{ path('lc_appointment') }}">Записаться</a></li>
@@ -80,7 +64,7 @@
                         <p>
                             <i class="fas fa-map-marker-alt"></i> Ул. Киевская 28Б, 2 этаж, офис 4 <br>
                             <i class="fas fa-phone"></i> 8-913-871-05-77<br>
-                            <i class="far fa-envelope"> </i><a href="mailto: govorushalogo@mail.ru">govorushalogo@mail.ru</a>
+                            <i class="far fa-envelope"> </i><a href="mailto:govorushalogo@mail.ru">govorushalogo@mail.ru</a>
                         </p>
                         <div class="social-icons">
                             <div class="col"><a href="https://vk.com/govorusha70" target="blanc"><i class="fab fa-vk"></i></a></div>
@@ -103,15 +87,15 @@
         </footer>
         <button id="button-up"><i class="fas fa-chevron-up"></i>
         </button>
-        {% endblock %}
-        
-
-        {{ encore_entry_script_tags('app') }}
-		
-        {% block javascripts %}
-        
-        {% endblock %}
+        {% endblock %}       
     </div>
+
+    
+    {{ encore_entry_script_tags('app') }}
+        
+    {% block javascripts %}
+        
+    {% endblock %}
 </body>
 
 </html>

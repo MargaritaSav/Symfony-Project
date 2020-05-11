@@ -21,7 +21,7 @@ class QuestionFormType extends AbstractType
             ->add('askedBy_email', EmailType::class, [
             'attr' => ['placeholder' => 'e-mail'], 'label' => false])
             ->add('question', TextareaType::class, [
-            'data' => 'Ваш вопрос', 'label' => false])
+            'label' => 'Ваш вопрос', "attr"=>['minlength' => 100]])
             ->add('send', SubmitType::class, ['label' => 'Отправить вопрос', 'attr' => ['class' => 'button']]);
     }
 

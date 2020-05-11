@@ -1,0 +1,7 @@
+{{form_start(form)}}
+    {{ form_row(form.client.name, {label: 'ФИО'}) }}
+    {{ form_row(form.client.email) }}
+    {{ form_row(form.client.phone, {label: 'Номер телефона'}) }}
+    {{ form_row(form.client.problem_description, {label: 'Пожалуйста, кратко опишите, по какой причине Вы записываетесь на консультацию'}) }}
+    {{ form_row(form.client.ppa) }}
+{{form_end(form)}}

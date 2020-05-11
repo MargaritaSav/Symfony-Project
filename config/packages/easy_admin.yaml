@@ -17,6 +17,9 @@ easy_admin:
           - { entity: 'Category', label: 'Категории статей', icon: tags}
       
       - { entity: 'Questions', label: 'Вопросы от посетителей сайта', icon: question}
+      - { entity: 'Specialist', label: 'Сотрудники', icon: user}
+      - { entity: 'Client', label: 'Данные контактной формы', icon: id-badge}
+      - { entity: 'Schedule', label: 'Расписание консультаций', icon: calendar}
     
   entities:
     Article:
@@ -25,6 +28,8 @@ easy_admin:
       list:
         title: "Статьи"
         help: "Список статей, опубликованных в рубрике 'Блог'"
+        actions:
+          - { name: 'new', label: '+ Добавить новую статью' }
         fields:
           - {property: "title", label: "Заголовок" } 
           - {property: "author", label: "Автор" } 
@@ -39,33 +44,109 @@ easy_admin:
           - {property: 'title', label: 'Заголовок статьи'}
           - {property: 'author', label: 'Автор статьи' }
           - {property: 'review', label: 'Краткое описание', type: 'text_editor'} 
-          - {property: 'imageFile', label: 'Основное изображение', type: 'vich_image' }
-          - {property: 'content', label: 'Содержание', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType' }
+          - {property: 'imageFile', label: 'Основное изображение', type: 'vich_image', type_options: {required: true} }
+          - {property: 'content', label: 'Содержание', type: 'FOS\CKEditorBundle\Form\Type\CKEditorType'}
           - {property: 'categories', label: 'Рубрики статьи' }
-          - { property: 'attachements', type: 'collection', type_options: {entry_type: 'App\Form\AttachementType', by_reference: false}}
+          - {property: 'attachements', label: 'Прикреплённые файлы', type: 'collection', type_options: {entry_type: 'App\Form\AttachementType', by_reference: false}}
+      new:
+        title: 'Добавить новую статью'
+      edit:
+        title: 'Редактировать статью'
     Category:
       class: App\Entity\Category
+      list:
+        title: "Рубрики статей"
+        help: "Здесь отображается список рубрик Ваших статей"
+        actions:
+          - { name: 'new', label: '+ Добавить новую категорию' }
+        fields:
+          - {property: 'id'}
+          - {property: 'name', label: 'Название рубрики'}
+          - {property: 'articles', label: 'Количество статей в данной рубрике'}
       form:
         fields:
           - {property: 'name', label: 'Название рубрики'}
     Questions:
+      templates: 
+        edit: 'admin/edit.html.twig'
       disabled_actions: ['new']
       class: App\Entity\Questions
       list:
+        title: "Вопросы от посетителей сайта"
         actions:
           - { name: 'edit', label: 'Ответить на вопрос' }
         fields:
           - {property: 'askedBy_name', label: 'Автор вопроса'}
-          - {property: 'askedBy_email', label: 'e-mail автора'}
+          - {property: 'askedBy_email', label: 'E-mail автора'}
           - {property: 'question', label: 'Вопрос:'}
           - {property: 'isAnswered', label: 'Ответ опубликован'}
       form:
+        title: 'Ответить на вопрос'
         fields:
           - {property: 'askedBy_name', label: 'Автор вопроса', type_options: {disabled: true}}
           - {property: 'askedBy_email', label: 'e-mail автора', type_options: {disabled: true}}
           - {property: 'question', label: 'Вопрос:', type_options: {disabled: true}}
           - {property: 'answer', label: 'Введите ответ', type: 'text_editor'}
-          - {property: 'isAnswered', label: 'Поставьте галочку, если хотите опубликовать ответ на странице "Вопросы и ответы"'}
+          - {property: 'answer', label: 'Введите ответ', type: 'text_editor'}
+          - {property: 'answeredBy', label: 'Автор ответа', type_options: {required: true, class: 'App\Entity\Specialist'}, type: 'entity'}
+      edit:
+        actions:
+          - {name: send_answer, type: route, label: 'Отправить ответ по e-mail', css_class: 'btn btn-warning', icon: envelope}
+    Schedule:
+      class: App\Entity\Schedule
+      templates: 
+        list: 'admin/calendar.html.twig'
+      list:
+        title: Расписание консультаций
+        actions: 
+          - {name: 'new', label: 'Добавить время консультаций'}
+
+      form:
+        title: 'Добавить время консультаций'
+        fields:
+          - { property: 'title', label: 'Услуга'}
+          - { property: 'start', type_options: { widget: 'single_text' }, label: 'Начало' }
+          - { property: 'end', type_options: { widget: 'single_text' }, label: 'Окончание'}
+          - { property: 'specialist', type_options: {required: true, class: 'App\Entity\Specialist'}, type: 'entity',  label: 'Специалист' }
+    Specialist: 
+      class: App\Entity\Specialist
+      list:
+        title: "Сотрудники"
+        actions:
+          - {name: 'new', label: '+Добавить сотрудника'}
+        fields:
+          - {property: 'name', label: 'ФИО'}
+          - {property: 'post', label: 'Должность'}
+          - {property: 'email', label: 'Email'}
+          - {property: 'phone', label: 'Номер телефона'}
+      form:
+        fields:
+          - {property: 'name', label: 'ФИО'}
+          - {property: 'post', label: 'Должность'}
+          - {property: 'email', label: 'Email'}
+          - {property: 'phone', label: 'Номер телефона'}
+      new:
+        title: "Добавить сотрудника"
+      edit:
+        title: "Редактировать данные сотрудника"
+    Client:
+      class: App\Entity\Client
+      list: 
+        title: "Данные контактной формы"
+        help: "Здесь Вы можете посмотреть сообщения, которые отправляют посетители через контактную форму, отображенную на странице 'Контакты'"
+        actions: [-new, -edit, show]
+        fields:
+          - {property: 'name', label: 'ФИО'}
+          - {property: 'email', label: 'Email '}
+          - {property: 'problem_description', label: 'Содержание сообщения'}
+        dql_filter: 'entity.is_contactForm = true'
+      show:
+        title: "Данные контактной формы"
+        fields:
+          - {property: 'name', label: 'ФИО'}
+          - {property: 'email', label: 'Email '}
+          - {property: 'problem_description', label: 'Содержание сообщения'}
+
           
 
 #        - App\Entity\Category

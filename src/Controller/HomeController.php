@@ -11,11 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
 
-class HomeController extends AbstractController{
+class HomeController extends AbstractController
+{
 /**
  * @Route("/", name="lc_home")
  */
-	public function index(ArticleRepository $repository){
+	public function index(ArticleRepository $repository)
+	{
 		$latestArticles = $repository->findLatest();
 		return $this->render('homepage.html.twig', ['articles'=>$latestArticles]);
 	}

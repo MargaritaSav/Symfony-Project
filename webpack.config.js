@@ -29,6 +29,9 @@ Encore
     .addEntry('blog', './assets/js/blog.js')
     .addEntry('faq', './assets/js/faq.js')
     .addEntry('contact', './assets/js/contact.js')
+    .addEntry('admin_question_edit', './assets/js/admin/question_edit.js')
+    .addEntry('calendar', './assets/js/admin/calendar.js')
+    .addEntry('appointment', './assets/js/appointment.js')
     //.addEntry('page2', './assets/js/page2.js')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.

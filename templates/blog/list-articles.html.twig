@@ -10,9 +10,9 @@
                         <div class="col-lg-5 article-tag">
                             <div class="row justify-content-around">
                                 {% for category in article.categories %}
-                                <div class="col-4">
+                                
                                     <a class="psy">#{{category}}</a>
-                                </div>
+                                
                                 {% endfor %}
                             </div>
                         </div>
@@ -39,12 +39,12 @@
             </div>
             <div class="col-12 article-lg-row">
                 <div class="row">
-                    <div class="col-12 col-lg-8  article-review">
-                        <p>{{article.review}}</p>
+                    <div class="col-12 col-lg-7  article-review">
+                        {{article.review|raw}}
                     </div>
-                    <div class="col-lg-4 article-data">
+                    <div class="col-lg-5 article-data">
                         <ul class="fa-ul">
-                            <li><span class="fa-li"><i class="far fa-user"></i></span>Author</li>
+                            <li><span class="fa-li"><i class="far fa-user"></i></span>{{article.author}}</li>
                             <li><span class="fa-li"><i class="far fa-calendar-alt"></i></span>{{article.FormatedDate}}</li>
                         </ul>
                     </div>
